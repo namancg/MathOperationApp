@@ -1,0 +1,11 @@
+.gradle
+.gitattributes
+/gradlew
+/gradlew.bat
+/gradle/
+build
+/bin/
+/.project/
+/.settings/
+/.classpath
+*.class
