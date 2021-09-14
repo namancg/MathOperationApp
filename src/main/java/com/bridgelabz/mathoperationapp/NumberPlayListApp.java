@@ -33,21 +33,27 @@ public class NumberPlayListApp {
 		});
 		//Explicit Lambda Function
 		Consumer<Integer> myListAction = n -> {
-			System.out.println("Explicit Lambda Implementation Value: "+n);
+			System.out.println("METHOD 4: Explicit Lambda Implementation Value: "+n);
 		};
 		myNumberList.forEach(myListAction);
 		//Implicit Lambda Function
 		myNumberList.forEach(n ->{
-			System.out.println("Implicit Lambda Implementation Value: "+n);
+			System.out.println("METHOD 5: Implicit Lambda Implementation Value: "+n);
 		});
 		//Implicit function to print double value
 		Function<Integer, Double> toDoubleFunction =Integer::doubleValue;
 		myNumberList.forEach(n -> {
-			System.out.println("Double implementation Value :" +toDoubleFunction.apply(n));
+			System.out.println("METHOD 6: Double implementation Value :" +toDoubleFunction.apply(n));
 		});
 		// implicit function to check even and print it
 		Predicate<Integer> isEvenFunction = n -> n>0 && n % 2 == 0;
-		myNumberList.forEach(n -> System.out.println((isEvenFunction.test(n)==true) ? +n+"IS EVEN NUMBER":+n+"IS A ODD NUMBER"));
+		myNumberList.forEach(n -> System.out.println((isEvenFunction.test(n)==true) ?"METHOD 7: " +n+"IS EVEN NUMBER":+n+"IS A ODD NUMBER"));
+		
+		// JAVA STREAMS
+		// Processing the stream
+		myNumberList.stream().forEach(n -> {
+			System.out.println("METHOD 8: Stream forEach value: "+n);
+		});
 
 	}
 
