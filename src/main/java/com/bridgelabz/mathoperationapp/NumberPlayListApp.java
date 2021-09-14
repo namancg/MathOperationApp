@@ -1,5 +1,6 @@
 package com.bridgelabz.mathoperationapp;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
@@ -24,7 +25,7 @@ public class NumberPlayListApp {
 		//Traversing with Consumer interface 
 		class MyConsumer implements Consumer<Integer>{
 			public void accept(Integer t) {
-				System.out.println("Value of list using class: "+t);
+				System.out.println("METHOD 2: Consumer implmentation value: "+t);
 			}
 		}
 		MyConsumer action = new MyConsumer();
@@ -32,7 +33,7 @@ public class NumberPlayListApp {
 		//Traversing with Anonymous Consumer interface 
 		myNumberList.forEach(new Consumer<Integer>(){
 			public void accept(Integer t) {
-				System.out.println("anonymous class Implementation Value: "+t);
+				System.out.println("METHOD 3: anonymous class Implementation Value: "+t);
 			}
 		});
 		//Explicit Lambda Function
@@ -56,14 +57,14 @@ public class NumberPlayListApp {
 		// JAVA STREAMS
 		// Processing the stream
 		myNumberList.stream().forEach(n -> {
-			System.out.println("METHOD 8: Stream forEach value: "+n);
+			System.out.println("Stream forEach value: "+n);
 		});
 		// process streams, apply operations and store the results using streams
 		List<Double> streamList = myNumberList.stream()
 								  .filter(isEvenFunction)
 								  .map(toDoubleFunction)
 								  .collect(Collectors.toList());
-		System.out.println("METHOD 9: printing double list"+streamList);
+		System.out.println("printing double list"+streamList);
 		
 		//Peek first element 
 		Integer first = myNumberList.stream()
@@ -71,7 +72,20 @@ public class NumberPlayListApp {
 						.peek(n -> System.out.println("Peek Even Number:"+n))
 						.findFirst()
 						.orElse(null);
-		System.out.println("METHOD 10: first even number "+first);
+		System.out.println("METHOD 8: first even number "+first);
+		
+		//Minimum and maximum of the given even number
+		Integer min = myNumberList.stream()
+					  .filter(isEvenFunction)
+					  .min((n1,n2)->n1-n2)
+					  .orElse(null);
+		System.out.println("METHOD 9: Minimum even nnumber : "+min);
+		
+		Integer max = myNumberList.stream()
+				  .filter(isEvenFunction)
+				  .max((Comparator.comparing(Integer::intValue)))
+				  .orElse(null);
+		System.out.println("METHOD 10: Maximum even nnumber : "+max);
 
 	}
 	
