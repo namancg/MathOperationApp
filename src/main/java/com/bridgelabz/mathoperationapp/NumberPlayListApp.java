@@ -7,6 +7,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Stream;
+
 import java.util.stream.Collectors;
 public class NumberPlayListApp {
 
@@ -63,6 +64,15 @@ public class NumberPlayListApp {
 								  .map(toDoubleFunction)
 								  .collect(Collectors.toList());
 		System.out.println("METHOD 9: printing double list"+streamList);
-	}
+		
+		//Peek first element 
+		Integer first = myNumberList.stream()
+						.filter(isEvenFunction)
+						.peek(n -> System.out.println("Peek Even Number:"+n))
+						.findFirst()
+						.orElse(null);
+		System.out.println("METHOD 10: first even number "+first);
 
+	}
+	
 }
