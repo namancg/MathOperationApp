@@ -58,8 +58,8 @@ public class NumberPlayListApp {
 			System.out.println("METHOD 8: Stream forEach value: "+n);
 		});
 		// process streams, apply operations and store the results using streams
-		List<Double> streamList = myNumberList.stream().map(toDoubleFunction)
-				.collect(Collectors.toList());
+		List<Double> streamList = myNumberList.stream().map(toDoubleFunction).collect(Collectors.toList());
+		System.out.println("METHOD 9: printing double list"+streamList);
 	}
 
 }
