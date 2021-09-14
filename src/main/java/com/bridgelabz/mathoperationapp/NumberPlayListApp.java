@@ -99,6 +99,12 @@ public class NumberPlayListApp {
 		boolean oneEven = myNumberList.stream().anyMatch(isEvenFunction);
 		boolean noneMultiOfSix= myNumberList.stream().noneMatch(i -> i>0 && i%6 ==0);
 		System.out.println("METHOD 12: allEven: "+allEven+"\noneEven " +oneEven+ "\nnoneMultiOfSix "+noneMultiOfSix);
+		
+		//sort the number stream in ascending order
+		List <Integer> sortedList = myNumberList.stream()
+									.sorted((n1,n2)->n1.compareTo(n2))
+									.collect(Collectors.toList());
+		System.out.println("METHOD 13: "+sortedList);
 	}
 	
 }
